@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Input {
     ArrayList<Integer> numbers = new ArrayList<>();
-
     public Input() {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите число: ");

@@ -40,23 +40,20 @@ public class Backpack {
     int count_max() {
         int previous;
         int counted;
-        for (int i=0; i<=obj_value.size(); i++) {
-            for (int j=0; j<=capacity; j++) {
-                if ((i==0)||(j==0)) {
-                    (prog.get(i))[j]=0;
-                }
-                else {
-                    if (obj_weight.get(i-1)>j) {
+        for (int i=1; i<obj_value.size(); i++) {
+            for (int j=1; j<=capacity; j++) {
+                    if (obj_weight.get(i)>j) {
                         (prog.get(i))[j]=(prog.get(i-1))[j];
                     }
                     else {
                         previous = (prog.get(i-1))[j];
-                        counted = obj_value.get(i-1) + (prog.get(i-1))[j-obj_weight.get(i-1)];
+                        counted = obj_value.get(i) + (prog.get(i-1))[Math.abs(j-obj_weight.get(i))];
                         (prog.get(i))[j] = Math.max(previous,counted);
                     }
-                }
+                System.out.print((prog.get(i))[j]+" ");
             }
+            System.out.println();
         }
-        return (prog.get(obj_value.size()-1))[capacity-1];
+        return (prog.get(obj_value.size()-1))[capacity];
     }
 }
