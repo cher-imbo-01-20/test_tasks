@@ -8,6 +8,7 @@ public class Input {
 
     public Input() {
         Scanner in = new Scanner(System.in);
+        System.out.print("Введите число: ");
         String number = in.nextLine();
         for (int i=0; i<number.length(); i++) {
             numbers.add(Integer.parseInt(String.valueOf(number.charAt(i))));
